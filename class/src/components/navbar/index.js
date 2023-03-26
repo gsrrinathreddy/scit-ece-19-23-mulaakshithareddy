@@ -13,10 +13,10 @@ import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
 
-const pages = ['Home', 'shorts', 'subscriptions','Library'];
+const pages = ['Name', 'Hobbies', 'Skills'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
-function navbar() {
+function Navbar() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
 
@@ -159,4 +159,4 @@ function navbar() {
     </AppBar>
   );
 }
-export default navbar;
+export default Navbar;
