@@ -66,7 +66,7 @@ export default function Experience() {
         </AccordionSummary>
         <AccordionDetails>
           <Typography>
-            Multi Senors Data on IOT
+            Multi Sensor Data on IOT
             </Typography>
         </AccordionDetails>
       </Accordion>

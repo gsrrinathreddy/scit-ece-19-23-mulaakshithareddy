@@ -13,7 +13,7 @@ export default function Qualifications() {
       <h1 className='mode'>Qualifications</h1>
       <ListItem alignItems="flex-start">
         <ListItemAvatar>
-          <Avatar alt="RGR Siddhanthi" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQSPcHLQr7yXRS3xTzz-fDmcbo_3WbimLnvW5-w8r5IJQ&s" />
+          <Avatar alt="RGR Siddhanthi" src="<a href='https://pngtree.com/so/Cute'>Cute png from pngtree.com/</a>" />
         </ListItemAvatar>
         <ListItemText
           primary="Sree Chaitanya Institute of Technological Sciences"
@@ -35,7 +35,7 @@ export default function Qualifications() {
       <Divider variant="inset" component="li" />
       <ListItem alignItems="flex-start">
         <ListItemAvatar>
-          <Avatar alt="Sri Aadarsh" src="https://www.w3schools.com/howto/img_avatar.png" />
+          <Avatar alt="Sri Aadarsh" src="<a href='https://pngtree.com/so/Cute'>Cute png from pngtree.com/</a>" />
         </ListItemAvatar>
         <ListItemText
           primary="Trinity Junior College"
@@ -57,7 +57,7 @@ export default function Qualifications() {
       <Divider variant="inset" component="li" />
       <ListItem alignItems="flex-start">
         <ListItemAvatar>
-          <Avatar alt="Sai SI" src="https://55knots.com.au/wp-content/uploads/2021/01/Zanj-Avatar-scaled.jpg" />
+          <Avatar alt="Akshithareddy" src="<a href='https://pngtree.com/so/Cute'>Cute png from pngtree.com/</a>" />
         </ListItemAvatar>
         <ListItemText
           primary="Vindhyavalley High School"

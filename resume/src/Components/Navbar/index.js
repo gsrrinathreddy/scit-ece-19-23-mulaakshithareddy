@@ -13,7 +13,7 @@ import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
 import { Link } from 'react-router-dom';
-const Pages = ['Aboutme', 'Qualifications', 'Skills','Experience','Hobbies'];
+const Pages = ['Aboutme', 'Qualifications', 'Skills','Experience','Hobbies','Projects','Certifications','Workshops','Contactme'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 function Navbar() {
