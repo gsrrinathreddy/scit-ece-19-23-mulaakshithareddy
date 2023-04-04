@@ -1,22 +1,29 @@
 import logo from './logo.svg';
 import './App.css';
-import Navbar from './components/Navbar';
-import {Routes,Route} from 'react-router-dom';
-import instagramstories from'./components/pages/instagramstories';
-import saved from './components/pages/saved';
-import followers from './components/pages/followers';
-import following from './components/pages/following';
+import Navbar from './Components/Navbar';
+import { BrowserRouter,Routes,Route } from 'react-router-dom';
+import  Followers from './Pages/Followers';
+import  Following from './Pages/Following';
+import Instagramstories from './Pages/Instagramstories';
+import Post from './Pages/Post';
 function App() {
   return (
     <div className="App">
-     <Navbar/>
-     <Routes> 
-     <Route path="/instagramstories" element = {<instagramstories/>}/>
-     <Route path="/saved" element = {<saved/>}/>
-     <Route path="/followers" element = {<followers/>}/>
-     <Route path="/following" element = {<following/>}/>
-     </Routes>
-    </div>
+
+      <BrowserRouter>
+      <Navbar/>
+      <Routes>
+      
+      <Route path="Followers" element={<Followers/>}/>
+      <Route path="Following" element={<Following/>}/>
+      <Route path="Instagramstories" element={<Instagramstories/>}/>
+      <Route path="Post" element={<Post/>}/>
+      
+      </Routes>
+      </BrowserRouter>
+      
+      </div>
+     
   );
 }
 
