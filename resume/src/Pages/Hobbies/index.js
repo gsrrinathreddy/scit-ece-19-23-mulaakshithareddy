@@ -41,6 +41,7 @@ export default function Hobbies() {
 const itemData = [
   {
     img:'https://blog.playo.co/wp-content/uploads/2017/05/badminton-for-mental-health.jpg',
+    title:'Badminton',
     
     rows: 2,
     cols: 2,

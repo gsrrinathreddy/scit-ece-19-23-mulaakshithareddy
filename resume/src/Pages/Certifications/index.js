@@ -1,12 +1,45 @@
 import { Typography } from '@mui/material';
 
-export default function Certifications(){
+import {useState, useEffect} from 'react'
+import axios from 'axios';
+import { CircularProgress, Box} from '@mui/material';
+
+
+export default function Certifications() {
+  const [loader,setLoader] = useState(true);
+    const[Cert,setCer] = useState(null);
+
+    const connectToServer = async() => axios.get('http://localhost:8000/Certifications') 
+                                           .then(res=>{
+                                            console.log(res);
+                                           }).catch(err=>console.log(err))
+    useEffect(() =>{                                 
+        connectToServer(); 
+    },[])
     return(
         <>
-<Typography>Iam certified by AI course from edunet foundation</Typography>
-<Typography>Participation certificate in quiz in college fest</Typography>
-<Typography>Iam certified by data analyst from Honeywell foundation </Typography>
-        </>
+        This is my Certifications
+          {
+             loader? <CircularProgress/>:<Box>
+            <Typography variant="h3">
+              {Cert.frontend}
+              </Typography>
+              <Typography variant="h3">
+              {Cert.languages}  
+              </Typography>  
+              <Typography variant="h3">
+              {Cert.componentsLibraries} 
+              </Typography>
+           
+           
+             </Box>
+        
+          }
+
+
+
+
+         </>
         
     )
     }

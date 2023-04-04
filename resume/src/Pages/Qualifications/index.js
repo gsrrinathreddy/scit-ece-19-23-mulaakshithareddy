@@ -1,81 +1,41 @@
-import * as React from 'react';
-import List from '@mui/material/List';
-import ListItem from '@mui/material/ListItem';
-import Divider from '@mui/material/Divider';
-import ListItemText from '@mui/material/ListItemText';
-import ListItemAvatar from '@mui/material/ListItemAvatar';
-import Avatar from '@mui/material/Avatar';
-import Typography from '@mui/material/Typography';
+import {useState, useEffect} from 'react'
+import axios from 'axios';
+import { CircularProgress, Typography, Box} from '@mui/material';
+
 
 export default function Qualifications() {
-  return (
-    <List sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper', p: 3}}>
-      <h1 className='mode'>Qualifications</h1>
-      <ListItem alignItems="flex-start">
-        <ListItemAvatar>
-          <Avatar alt="RGR Siddhanthi" src="<a href='https://pngtree.com/so/Cute'>Cute png from pngtree.com/</a>" />
-        </ListItemAvatar>
-        <ListItemText
-          primary="Sree Chaitanya Institute of Technological Sciences"
-          secondary={
-            <React.Fragment>
-              <Typography
-                sx={{ display: 'inline' }}
-                component="span"
-                variant="body2"
-                color="text.primary"
-              >
-                66% CGPA
+  const [loader,setLoader] = useState(true);
+    const[qual,setQual] = useState(null);
+
+    const connectToServer = async() => axios.get('http://localhost:8000/Qualifications') 
+                                           .then(res=>{
+                                            console.log(res);
+                                           }).catch(err=>console.log(err))
+    useEffect(() =>{                                 
+        connectToServer(); 
+    },[])
+    return(
+        <>
+        This is my Qualifications
+        {
+             loader? <CircularProgress/>:<Box>
+            <Typography variant="h3">
+              {qual.btech}
               </Typography>
-              {" — B.TECH-ElECTRONICS AND COMMUNICATION ENGINEERING"}
-            </React.Fragment>
-          }
-        />
-      </ListItem>
-      <Divider variant="inset" component="li" />
-      <ListItem alignItems="flex-start">
-        <ListItemAvatar>
-          <Avatar alt="Sri Aadarsh" src="<a href='https://pngtree.com/so/Cute'>Cute png from pngtree.com/</a>" />
-        </ListItemAvatar>
-        <ListItemText
-          primary="Trinity Junior College"
-          secondary={
-            <React.Fragment>
-              <Typography
-                sx={{ display: 'inline' }}
-                component="span"
-                variant="body2"
-                color="text.primary"
-              >
-                87.9% CGPA
+              <Typography variant="h3">
+              {qual.grade}  
+              </Typography>  
+              <Typography variant="h3">
+              {qual.performance} 
               </Typography>
-              {" — Intermediate studies with MPC"}
-            </React.Fragment>
-          }
-        />
-      </ListItem>
-      <Divider variant="inset" component="li" />
-      <ListItem alignItems="flex-start">
-        <ListItemAvatar>
-          <Avatar alt="Akshithareddy" src="<a href='https://pngtree.com/so/Cute'>Cute png from pngtree.com/</a>" />
-        </ListItemAvatar>
-        <ListItemText
-          primary="Vindhyavalley High School"
-          secondary={
-            <React.Fragment>
-              <Typography
-                sx={{ display: 'inline' }}
-                component="span"
-                variant="body2"
-                color="text.primary"
-              >
-                92% CGPA
-              </Typography>
-              {' — SSC'}
-            </React.Fragment>
-          }
-        />
-      </ListItem>
-    </List>
-  );
+           </Box>
+        }
+        
+        
+        
+        </>
+
+
+
+    )
 }

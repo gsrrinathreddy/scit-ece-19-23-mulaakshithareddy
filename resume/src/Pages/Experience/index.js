@@ -5,6 +5,15 @@ import MuiAccordion from '@mui/material/Accordion';
 import MuiAccordionSummary from '@mui/material/AccordionSummary';
 import MuiAccordionDetails from '@mui/material/AccordionDetails';
 import Typography from '@mui/material/Typography';
+
+
+import {useState, useEffect} from 'react'
+import axios from 'axios';
+import { CircularProgress, Box} from '@mui/material';
+
+    
+  
+
 const Accordion = styled((props) => (
   <MuiAccordion disableGutters elevation={0} square {...props} />
 ))(({ theme }) => ({
@@ -44,42 +53,36 @@ const AccordionDetails = styled(MuiAccordionDetails)(({ theme }) => ({
 export default function Experience() {
   const [expanded, setExpanded] = React.useState('panel1');
 
-  const handleChange = (panel) => (event, newExpanded) => {
-    setExpanded(newExpanded ? panel : false);
-  };
+  const [loader,setLoader] = useState(true)
+    const [Exper,setExper] = useState(null)
+  
+    const connectToServer = async() => axios.get('http://localhost:8000/Experience') 
+                                           .then(res=>{
+                                              console.log(res);
+                                           }).catch(err=>console.log(err))
+    connectToServer();
+  
 
   return (
-    <div>
-      <Accordion expanded={expanded === 'panel1'} onChange={handleChange('panel1')}>
-        <AccordionSummary aria-controls="panel1d-content" id="panel1d-header">
-          <Typography>Project1</Typography>
-        </AccordionSummary>
-        <AccordionDetails>
-          <Typography>
-           Color Images Of Extremely Low Light Pixel to High Pixel Transformation
-         </Typography>
-        </AccordionDetails>
-      </Accordion>
-      <Accordion expanded={expanded === 'panel2'} onChange={handleChange('panel2')}>
-        <AccordionSummary aria-controls="panel2d-content" id="panel2d-header">
-          <Typography>Project2</Typography>
-        </AccordionSummary>
-        <AccordionDetails>
-          <Typography>
-            Multi Senors Data on IOT
-            </Typography>
-        </AccordionDetails>
-      </Accordion>
-      <Accordion expanded={expanded === 'panel3'} onChange={handleChange('panel3')}>
-        <AccordionSummary aria-controls="panel3d-content" id="panel3d-header">
-          <Typography>Project3</Typography>
-        </AccordionSummary>
-        <AccordionDetails>
-          <Typography>
-            Image Enhancement 
-            </Typography>
-        </AccordionDetails>
-      </Accordion>
-    </div>
+    <>
+      2 years of web development
+      {
+             loader? <CircularProgress/>:<Box>
+            <Typography variant="h3">
+              {Experience.years}
+              </Typography>
+              <Typography variant="h3">
+              {Experience.project}  
+              </Typography>  
+              <Typography variant="h3">
+              {Experience.duration} 
+              </Typography>
+           
+           
+           </Box>
+
+
+        }
+    </>
   );
 }
