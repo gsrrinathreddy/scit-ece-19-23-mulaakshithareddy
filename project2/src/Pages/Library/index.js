@@ -1,7 +1,7 @@
 export default function Library(){
     return(
         <>
-        history
+       Downloaded Videos
         </>
     )
-    }
+}
